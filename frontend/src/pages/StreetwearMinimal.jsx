@@ -140,10 +140,10 @@ export default function StreetwearMinimal() {
 
       {/* ── YOUR GENERATION IS READY ── mobile: stacked, desktop: 2-col */}
       <section className="grid grid-cols-2" style={{ borderTop: '4px solid #000' }}>
-        <div className="relative overflow-hidden" style={{ borderBottom: '4px solid #000' }}>
+        <div className="relative overflow-hidden" style={{ borderBottom: '4px solid #000', height: '420px' }}>
           <img src="/images/a..2.creative images for sections/bright genz boy.png"
             alt="Your generation is ready"
-            className="w-full object-top"
+            className="absolute inset-0 w-full h-full object-contain object-top"
             style={{ display: 'block', filter: 'contrast(1.08)' }} />
           <div style={{ position: 'absolute', bottom: 0, left: 0, width: '120px', height: '120px', overflow: 'hidden', opacity: 0.55, pointerEvents: 'none', borderTop: '4px solid #000', borderRight: '4px solid #000' }}>
             <img src="/images/a.1.abstract art background/Abstract Art.jpg" alt="" className="w-full h-full object-cover" />
