@@ -182,10 +182,8 @@ export default function StreetwearArticlePage() {
 
       {/* ── 3. HERO — mobile: stacked, desktop: 60/40 split ─────────── */}
       <style>{`
-        .hero-grid { display: grid; grid-template-columns: 1fr; border-bottom: 4px solid #000; }
-        @media (min-width: 768px) { .hero-grid { grid-template-columns: 60% 40%; min-height: 70vh; } }
-        .hero-img { min-height: 280px; }
-        @media (min-width: 768px) { .hero-img { min-height: unset; } }
+        .hero-grid { display: grid; grid-template-columns: 60% 40%; min-height: 60vh; border-bottom: 4px solid #000; }
+        .hero-img { min-height: 260px; }
       `}</style>
       <div className="hero-grid">
         {/* Left: black side */}
@@ -567,7 +565,7 @@ export default function StreetwearArticlePage() {
         </div>
 
         {/* Grid — 1 col mobile, 2 col tablet, 3 col desktop */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" style={{ gap: '0' }}>
+        <div className="grid grid-cols-2 lg:grid-cols-3" style={{ gap: '0' }}>
           {related.map((rel, i) => (
             <RelatedCard
               key={rel.id}

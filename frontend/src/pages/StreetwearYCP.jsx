@@ -78,9 +78,9 @@ export default function StreetwearYCP() {
           <span style={{ fontFamily: ANTON, fontSize: 'clamp(8rem,20vw,20rem)', color: '#e8e8e8', letterSpacing: '-8px', lineHeight: 1, userSelect: 'none', whiteSpace: 'nowrap' }}>YCP</span>
         </div>
 
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-12" style={{ minHeight: '60vh' }}>
+        <div className="relative z-10 grid grid-cols-12" style={{ minHeight: '60vh' }}>
           {/* Image */}
-          <div className="md:col-span-5 relative overflow-hidden" style={{ minHeight: '300px', borderBottom: '4px solid #000' }}>
+          <div className="col-span-5 relative overflow-hidden" style={{ minHeight: '260px', borderRight: '4px solid #000' }}>
             <img src="/images/a..2.creative images for sections/hero section teens.png" alt="Young citizens"
               className="w-full h-full object-cover object-top" style={{ display: 'block', minHeight: '300px' }} />
             <div style={{ position: 'absolute', top: '16px', left: '16px', background: '#000', color: RED, fontFamily: MONO, fontSize: '10px', fontWeight: 900, letterSpacing: '0.25em', padding: '6px 12px', border: `2px solid ${RED}`, textTransform: 'uppercase' }}>
@@ -89,7 +89,7 @@ export default function StreetwearYCP() {
           </div>
 
           {/* Text */}
-          <motion.div className="md:col-span-7 flex flex-col justify-center p-6 md:p-16"
+          <motion.div className="col-span-7 flex flex-col justify-center p-4 md:p-16"
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <p style={{ fontFamily: MONO, fontSize: '10px', color: RED, letterSpacing: '0.35em', textTransform: 'uppercase', marginBottom: '20px', fontWeight: 900 }}>
               TEENDOM · YOUNG CITIZENS PROGRAM
@@ -101,7 +101,7 @@ export default function StreetwearYCP() {
             <p style={{ fontFamily: MONO, fontSize: '13px', color: '#444', letterSpacing: '0.05em', lineHeight: 1.9, maxWidth: '440px', marginBottom: '32px' }}>
               Constitutional education for Kenyan teens.<br />Three tracks. Real knowledge. Real power.
             </p>
-            <div className="flex flex-col sm:flex-row gap-0">
+            <div className="flex flex-row gap-0">
               <button
                 style={{ fontFamily: MONO, fontSize: '11px', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', padding: '14px 28px', border: `4px solid #000`, background: RED, color: '#fff', cursor: 'pointer', transition: 'background 0.2s' }}
                 onMouseEnter={e => e.currentTarget.style.background = '#b91c1c'}

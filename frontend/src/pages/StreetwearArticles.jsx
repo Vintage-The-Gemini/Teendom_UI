@@ -71,7 +71,7 @@ export default function StreetwearArticles() {
       <motion.section
         initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
         style={{ background: '#000', padding: '48px 0' }}>
-        <div className="max-w-7xl mx-auto px-4 md:px-6 flex flex-col md:flex-row justify-between items-start gap-8 md:gap-12">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 flex flex-row justify-between items-start gap-4 md:gap-12">
           <div>
             <h1 style={{ fontFamily: ANTON, fontSize: 'clamp(3.5rem,12vw,9rem)', color: '#fff', lineHeight: 0.9, letterSpacing: '-2px', margin: 0 }}>
               ALL<br />STORIES.
@@ -151,7 +151,7 @@ export default function StreetwearArticles() {
       <motion.section
         initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
         className="max-w-7xl mx-auto px-4 md:px-6" style={{ paddingTop: '48px', paddingBottom: '48px' }}>
-        <div className="grid grid-cols-1 md:grid-cols-2" style={{ border: '4px solid #000' }}>
+        <div className="grid grid-cols-2" style={{ border: '4px solid #000' }}>
           {/* Left: black panel */}
           <div className="p-6 md:p-12 flex flex-col justify-center" style={{ background: '#000', borderBottom: '4px solid #000' }}>
             <p style={{ fontFamily: MONO, fontSize: '10px', color: RED, letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '14px' }}>LATEST DROP</p>
