@@ -206,15 +206,14 @@ export default function StreetwearArticlePage() {
         </div>
       </div>
 
-      {/* ── 3. HERO — brutalist split ─────────────────────────────── */}
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: '60% 40%',
-          minHeight: '70vh',
-          borderBottom: '4px solid #000',
-        }}
-      >
+      {/* ── 3. HERO — mobile: stacked, desktop: 60/40 split ─────────── */}
+      <style>{`
+        .hero-grid { display: grid; grid-template-columns: 1fr; border-bottom: 4px solid #000; }
+        @media (min-width: 768px) { .hero-grid { grid-template-columns: 60% 40%; min-height: 70vh; } }
+        .hero-img { min-height: 280px; }
+        @media (min-width: 768px) { .hero-img { min-height: unset; } }
+      `}</style>
+      <div className="hero-grid">
         {/* Left: black side */}
         <div
           style={{
@@ -245,7 +244,7 @@ export default function StreetwearArticlePage() {
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
-              padding: '40px 48px',
+              padding: 'clamp(24px, 4vw, 48px)',
             }}
           >
             <h1
@@ -290,9 +289,10 @@ export default function StreetwearArticlePage() {
 
         {/* Right: image side */}
         <div
+          className="hero-img"
           style={{
             position: 'relative',
-            borderLeft: `4px solid ${RED}`,
+            borderTop: '4px solid #000',
             overflow: 'hidden',
           }}
         >
@@ -304,6 +304,7 @@ export default function StreetwearArticlePage() {
               height: '100%',
               objectFit: 'cover',
               display: 'block',
+              minHeight: '280px',
             }}
           />
           {/* Issue stamp top-right */}
@@ -359,7 +360,7 @@ export default function StreetwearArticlePage() {
         style={{
           maxWidth: '800px',
           margin: '0 auto',
-          padding: '64px 24px',
+          padding: 'clamp(24px, 5vw, 64px) clamp(16px, 4vw, 24px)',
           background: '#F4F4F4',
         }}
       >
@@ -431,7 +432,7 @@ export default function StreetwearArticlePage() {
                   style={{
                     width: '100%',
                     background: '#000',
-                    padding: '32px 40px',
+                    padding: 'clamp(20px, 4vw, 40px)',
                     marginBottom: '32px',
                     boxSizing: 'border-box',
                   }}
@@ -439,7 +440,7 @@ export default function StreetwearArticlePage() {
                   <p
                     style={{
                       fontFamily: ANTON,
-                      fontSize: '2rem',
+                      fontSize: 'clamp(1.4rem, 4vw, 2rem)',
                       color: '#fff',
                       lineHeight: 0.95,
                       margin: '0 0 20px 0',
@@ -591,14 +592,8 @@ export default function StreetwearArticlePage() {
           <div style={{ width: '100%', height: '4px', background: '#000' }} />
         </div>
 
-        {/* Grid */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '0',
-          }}
-        >
+        {/* Grid — 1 col mobile, 2 col tablet, 3 col desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" style={{ gap: '0' }}>
           {related.map((rel, i) => (
             <RelatedCard
               key={rel.id}
@@ -721,9 +716,7 @@ function RelatedCard({ article, index, onClick }) {
       onClick={onClick}
       style={{
         cursor: 'pointer',
-        marginLeft: index > 0 ? '-4px' : '0',
         position: 'relative',
-        zIndex: index,
       }}
     >
       {/* Image */}
