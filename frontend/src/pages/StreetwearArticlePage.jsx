@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowLeft, Clock, Heart, Zap, Share2 } from 'lucide-react';
+import { ArrowLeft, Clock, Heart, Zap, Share2, Menu, X } from 'lucide-react';
 import { mockArticles } from '../data/articles';
 import { ART_BACKGROUNDS } from '../components/ArtCard';
 
@@ -15,6 +15,7 @@ export default function StreetwearArticlePage() {
   const article = mockArticles.find((a) => String(a.id) === String(id));
 
   const [liked, setLiked] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // ── Not found state ───────────────────────────────────────────────
   if (!article) {
@@ -66,68 +67,41 @@ export default function StreetwearArticlePage() {
       }}
     >
       {/* ── 1. NAV ───────────────────────────────────────────────── */}
-      <nav
-        style={{
-          position: 'sticky',
-          top: 0,
-          zIndex: 100,
-          background: '#F4F4F4',
-          borderBottom: '4px solid #000',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          padding: '0 24px',
-          height: '56px',
-        }}
-      >
-        {/* Left: logo */}
-        <button
-          onClick={() => navigate('/home/street')}
-          style={{
-            fontFamily: ANTON,
-            fontSize: '1.75rem',
-            color: '#000',
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-            padding: 0,
-            lineHeight: 1,
-          }}
-        >
-          TEENDOM
-        </button>
-
-        {/* Center: breadcrumb (desktop only) */}
-        <span
-          style={{
-            fontFamily: MONO,
-            fontSize: '10px',
-            color: '#888',
-            letterSpacing: '0.1em',
-            display: 'none',
-            // shown via media query fallback — use inline style trick
-          }}
-          className="nav-breadcrumb"
-        >
-          HOME / ARTICLES / {article.category}
-        </span>
-
-        {/* Right: JOIN YCP */}
-        <button
-          style={{
-            fontFamily: MONO,
-            fontSize: '11px',
-            color: '#fff',
-            background: RED,
-            border: '3px solid #000',
-            padding: '8px 18px',
-            cursor: 'pointer',
-            letterSpacing: '0.08em',
-            fontWeight: 700,
-          }}
-        >
-          JOIN YCP
-        </button>
+      <nav className="sticky top-0 z-50" style={{ borderBottom: '4px solid #000', background: '#F4F4F4' }}>
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
+          <button onClick={() => navigate('/home/street')}
+            style={{ fontFamily: ANTON, fontSize: '1.75rem', letterSpacing: '-1px', color: '#000', lineHeight: 1, background: 'none', border: 'none', cursor: 'pointer' }}>
+            TEENDOM
+          </button>
+          <span className="hidden md:block nav-breadcrumb"
+            style={{ fontFamily: MONO, fontSize: '10px', color: '#888', letterSpacing: '0.1em' }}>
+            HOME / ARTICLES / {article.category}
+          </span>
+          <div className="flex items-center gap-2">
+            <button onClick={() => navigate('/street/ycp')}
+              className="hidden md:block"
+              style={{ fontFamily: MONO, fontSize: '10px', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', padding: '8px 16px', border: '3px solid #000', background: RED, color: '#fff', cursor: 'pointer' }}>
+              JOIN YCP
+            </button>
+            <button className="md:hidden p-1" onClick={() => setMenuOpen(!menuOpen)}>
+              {menuOpen ? <X size={24} strokeWidth={3} /> : <Menu size={24} strokeWidth={3} />}
+            </button>
+          </div>
+        </div>
+        {menuOpen && (
+          <div className="md:hidden px-4 py-4 flex flex-col" style={{ borderTop: '4px solid #000', background: '#F4F4F4' }}>
+            {[['HOME', '/home/street'], ['ARTICLES', '/street/articles'], ['YOUNG CITIZENS', '/street/ycp']].map(([label, path]) => (
+              <button key={label} onClick={() => { navigate(path); setMenuOpen(false); }}
+                className="text-left py-3 px-2 font-black tracking-widest uppercase hover:bg-black hover:text-white transition-all"
+                style={{ fontFamily: MONO, fontSize: '13px', borderBottom: '2px solid #000' }}>{label}</button>
+            ))}
+            <button onClick={() => { navigate('/street/ycp'); setMenuOpen(false); }}
+              className="mt-3 py-3 px-4 font-black tracking-widest uppercase text-white text-center"
+              style={{ fontFamily: MONO, fontSize: '13px', background: RED, border: '3px solid #000' }}>
+              JOIN YCP
+            </button>
+          </div>
+        )}
       </nav>
 
       {/* Inline style for breadcrumb desktop visibility */}

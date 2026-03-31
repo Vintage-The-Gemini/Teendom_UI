@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 import { mockArticles, categories } from '../data/articles';
 import { StreetwearArtCard } from '../components/ArtCard';
 
@@ -11,6 +12,7 @@ const RED   = '#DC2626';
 export default function StreetwearArticles() {
   const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState('ALL');
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const filtered = activeCategory === 'ALL'
     ? mockArticles
@@ -38,11 +40,31 @@ export default function StreetwearArticles() {
               </button>
             ))}
           </div>
-          <button onClick={() => navigate('/street/ycp')}
-            style={{ fontFamily: MONO, fontSize: '10px', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', padding: '8px 16px', border: `3px solid #000`, background: RED, color: '#fff', cursor: 'pointer' }}>
-            JOIN YCP
-          </button>
+          <div className="flex items-center gap-2">
+            <button onClick={() => navigate('/street/ycp')}
+              className="hidden md:block"
+              style={{ fontFamily: MONO, fontSize: '10px', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', padding: '8px 16px', border: `3px solid #000`, background: RED, color: '#fff', cursor: 'pointer' }}>
+              JOIN YCP
+            </button>
+            <button className="md:hidden p-1" onClick={() => setMenuOpen(!menuOpen)}>
+              {menuOpen ? <X size={24} strokeWidth={3} /> : <Menu size={24} strokeWidth={3} />}
+            </button>
+          </div>
         </div>
+        {menuOpen && (
+          <div className="md:hidden px-4 py-4 flex flex-col" style={{ borderTop: '4px solid #000', background: '#F4F4F4' }}>
+            {[['HOME', '/home/street'], ['ARTICLES', '/street/articles'], ['YOUNG CITIZENS', '/street/ycp']].map(([label, path]) => (
+              <button key={label} onClick={() => { navigate(path); setMenuOpen(false); }}
+                className="text-left py-3 px-2 font-black tracking-widest uppercase hover:bg-black hover:text-white transition-all"
+                style={{ fontFamily: MONO, fontSize: '13px', borderBottom: '2px solid #000' }}>{label}</button>
+            ))}
+            <button onClick={() => { navigate('/street/ycp'); setMenuOpen(false); }}
+              className="mt-3 py-3 px-4 font-black tracking-widest uppercase text-white text-center"
+              style={{ fontFamily: MONO, fontSize: '13px', background: RED, border: '3px solid #000' }}>
+              JOIN YCP
+            </button>
+          </div>
+        )}
       </nav>
 
       {/* ── HEADER ── */}

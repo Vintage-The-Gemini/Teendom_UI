@@ -100,7 +100,7 @@ export default function StreetwearMinimal() {
             <motion.h1 initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.65 }}
               style={{ fontFamily: ANTON, fontSize: 'clamp(3.5rem,10vw,10rem)', lineHeight: 0.87, letterSpacing: '-1px', color: '#000' }}>
-              YOUR<br />VOICE.<br />YOUR<br />CITY.
+              YOUR<br />VOICE.<br />YOUR<br />COUNTRY.
             </motion.h1>
             <div className="mt-6 mb-6 flex items-center gap-4">
               <div style={{ width: '72px', height: '5px', background: RED, border: '2px solid #000' }} />
