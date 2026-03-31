@@ -639,7 +639,7 @@ export default function StreetwearArticlePage() {
             letterSpacing: '0.06em',
           }}
         >
-          © 2024 TEENDOM AFRICA
+          © 2026 TEENDOM AFRICA
         </span>
 
         {/* Right: social buttons */}

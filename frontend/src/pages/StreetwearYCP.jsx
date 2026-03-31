@@ -207,7 +207,7 @@ export default function StreetwearYCP() {
       <footer style={{ background: '#000', borderTop: `4px solid ${RED}`, padding: '1.5rem' }}>
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           <p style={{ fontFamily: ANTON, fontSize: '1.5rem', color: '#fff' }}>TEENDOM</p>
-          <p style={{ fontFamily: MONO, fontSize: '10px', color: '#555', letterSpacing: '0.15em' }}>© 2024 TEENDOM AFRICA</p>
+          <p style={{ fontFamily: MONO, fontSize: '10px', color: '#555', letterSpacing: '0.15em' }}>© 2026 TEENDOM AFRICA</p>
           <div style={{ display: 'flex', gap: '12px' }}>
             {['IG', 'TW', 'YT'].map(s => (
               <button key={s} style={{ fontFamily: MONO, fontSize: '11px', fontWeight: 900, textTransform: 'uppercase', color: '#555', padding: '4px 8px', border: '2px solid #333', background: 'none', cursor: 'pointer' }}
