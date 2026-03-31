@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Chrome text shimmer animation */
+@keyframes chrome-shift {
+  0%, 100% { background-position: 0% center; }
+  50%       { background-position: 100% center; }
+}
+
+/* Iridescent / holographic stripe animation */
+@keyframes holo-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+@layer utilities {
+  /* Chrome / Silver accent border */
+  .border-chrome {
+    border-color: #C0C0C0;
+  }
+
+  /* Holographic glow on hover — only on small elements */
+  .glow-holo:hover {
+    box-shadow:
+      0 0 0 1px #a8edea,
+      0 0 0 2px #fed6e3,
+      0 0 8px rgba(168, 237, 234, 0.3);
+  }
+
+  /* Streetwear neon lime accent */
+  .lime-active {
+    background-color: #CCFF00;
+    color: #000;
+  }
+
+  /* Film-style rotated timestamp */
+  .film-stamp {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    color: #999;
+    user-select: none;
+  }
+
+  /* Tilt utilities for Gen-Z cards */
+  .tilt-right { transform: rotate(1.5deg); }
+  .tilt-left  { transform: rotate(-1deg); }
+  .tilt-slight { transform: rotate(0.7deg); }
+}
