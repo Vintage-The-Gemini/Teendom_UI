@@ -13,9 +13,9 @@ const RED   = '#DC2626';
 const ART_GEO = "/images/a.1.abstract art background/download (19).jpg";
 
 const VOICES = [
-  { name: 'AMARA K.', county: 'NAIROBI', role: 'CLIMATE ACTIVIST', img: '/images/a..2.creative images for sections/hero section teens.png', quote: 'I used constitutional rights to shut down illegal dumping in my estate. The law is our tool.' },
-  { name: 'JABARI M.', county: 'MOMBASA', role: 'STUDENT LEADER', img: '/images/a..2.creative images for sections/minimalistic boy.png', quote: 'YCP gave me the language. Now I speak at county assemblies. No one talks over me anymore.' },
-  { name: 'ZURI N.', county: 'KISUMU', role: 'JOURNALIST', img: '/images/a..2.creative images for sections/dark fasion girl.png', quote: 'My school paper became a platform. 200 readers became 2,000. Real stories travel far.' },
+  { name: 'WANJIRU K.', county: 'NAIROBI', role: 'CLIMATE ACTIVIST', img: '/images/a..2.creative images for sections/hero section teens.png', quote: 'I used constitutional rights to shut down illegal dumping in my estate. The law is our tool.' },
+  { name: 'BARAKA M.', county: 'MOMBASA', role: 'STUDENT LEADER', img: '/images/a..2.creative images for sections/minimalistic boy.png', quote: 'YCP gave me the language. Now I speak at county assemblies. No one talks over me anymore.' },
+  { name: 'AKINYI N.', county: 'KISUMU', role: 'JOURNALIST', img: '/images/a..2.creative images for sections/dark fasion girl.png', quote: 'My school paper became a platform. 200 readers became 2,000. Real stories travel far.' },
 ];
 
 export default function StreetwearMinimal() {

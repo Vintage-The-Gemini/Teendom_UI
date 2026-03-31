@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import VibeSelector      from './pages/VibeSelector';
 import StreetwearMinimal      from './pages/StreetwearMinimal';
@@ -8,12 +8,19 @@ import StreetwearYCP          from './pages/StreetwearYCP';
 import StreetwearAwards       from './pages/StreetwearAwards';
 import PreviewBar            from './components/PreviewBar';
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+}
+
 export default function App() {
   const { pathname } = useLocation();
   const onHomePage = pathname.startsWith('/home/');
 
   return (
     <>
+      <ScrollToTop />
       <Routes>
         <Route path="/"                element={<VibeSelector />} />
         <Route path="/home/street"       element={<StreetwearMinimal />} />
